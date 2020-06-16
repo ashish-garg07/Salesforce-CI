@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Create Scratch Org
           command: |
-            openssl enc -nosalt -aes-256-cbc -d -in assets/server.key.enc -out assets/server.key -base64 -K $DECRYPTION_KEY -iv $DECRYPTION_IV
+            openssl enc -nosalt -aes-256-cbc -d -in assets/server.key.enc -out assets/server.key -base64 -K $DECRYPTION_KEY
             sfdx force:auth:jwt:grant --clientid $HUB_CONSUMER_KEY --jwtkeyfile assets/server.key --username $HUB_SFDC_USER --setdefaultdevhubusername -a hub
             sfdx force:org:create -s -f ~/Salesforce-CI/config/project-scratch-def.json -a circle_build_$CIRCLE_BUILD_NUM --wait 3
             sfdx force:source:push -u circle_build_$CIRCLE_BUILD_NUM
