@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     machine: true
-    working_directory: ~/Salesfroce CI
+    working_directory: ~/Salesforce-CI
     environment:
       - DX_CLI_URL: https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
     steps:
